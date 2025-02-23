@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engeneering Mechanics - Gtech Poly</title>
+    <title id="page-title"></title>
     <style>
         * {
             margin: 0;
@@ -67,12 +67,12 @@
 <body>
 
     <div class="container">
-        <h1>Engeneering Mechanics Chapters</h1>
+        <h1 id="subject-title"></h1>
         <p>Select a chapter to explore:</p>
         <div class="chapter-list">
             <button class="chapter-button" onclick="saveChapter(1)">Chapter 1</button>
-            <!--<button class="chapter-button" onclick="saveChapter(2)">Chapter 2</button>
-            <button class="chapter-button" onclick="saveChapter(3)">Chapter 3</button>
+            <button class="chapter-button" onclick="saveChapter(2)">Chapter 2</button>
+            <!--<button class="chapter-button" onclick="saveChapter(3)">Chapter 3</button>
             <button class="chapter-button" onclick="saveChapter(4)">Chapter 4</button>
             <button class="chapter-button" onclick="saveChapter(5)">Chapter 5</button>
             <button class="chapter-button" onclick="saveChapter(6)">Chapter 6</button>-->
@@ -80,6 +80,15 @@
     </div>
 
     <script>
+        // Get the subject name from local storage
+        const selectedSubject = localStorage.getItem('selectedSubject');
+        
+        // Display the subject name in the h1 tag
+        document.getElementById('subject-title').innerText = `${selectedSubject} Chapters`;
+        
+        // Set the title dynamically
+        document.getElementById('page-title').innerText = `${selectedSubject} Gtech-Poly`;
+        
         function saveChapter(chapterNumber) {
             // Save the selected chapter number to local storage
             localStorage.setItem('selectedChapter', chapterNumber);
