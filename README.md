@@ -1,1 +1,0 @@
-# Gtech-poly
