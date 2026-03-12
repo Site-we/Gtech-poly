@@ -100,41 +100,7 @@
         }
     </style>
     <script>
-        async function checkAccess() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get("user");
-            const errorMessage = document.getElementById("error-message");
-            const logoutButton = document.getElementById("logout-button");
-
-            if (!query) {
-                errorMessage.textContent = "Access Denied: No User";
-                errorMessage.style.display = "block";
-                logoutButton.style.display = "block";
-                return;
-            }
-
-            try {
-                // Fetch users from PHP backend (InfinityFree)
-                const response = await fetch("https://corsproxy.io/?https://nikhilkumar.free.nf/users.php");
-                if (!response.ok) throw new Error("Failed to load users.php");
-
-                const users = await response.json();
-
-                if (!users.includes(query)) {
-                    errorMessage.textContent = "Access Denied: User not found.";
-                    errorMessage.style.display = "block";
-                    logoutButton.style.display = "block";
-                    return;
-                }
-
-                document.getElementById("content").style.display = "block";
-
-            } catch (error) {
-                errorMessage.textContent = "Error loading users";
-                errorMessage.style.display = "block";
-                logoutButton.style.display = "block";
-            }
-        }
+        
 
         function saveSubjectAndNavigate(event) {
             event.preventDefault();
